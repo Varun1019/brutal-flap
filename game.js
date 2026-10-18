@@ -66,6 +66,566 @@
     }
   ];
 
+  // --- Neo-Brutalist Environment Themes ---
+  const THEMES = [
+    {
+      id: 'cyan',
+      name: 'ELECTRIC CYAN',
+      icon: '⚡',
+      tagline: 'Classic High-Voltage Neo-Brutal',
+      swatches: ['#70D6FF', '#FFE600', '#FF3366', '#E2E8F0'],
+      sky: '#70D6FF',
+      skyType: 'solid',
+      skyGridColor: 'rgba(0, 0, 0, 0.08)',
+      hasStars: false,
+      celestial: {
+        type: 'sunglasses',
+        color: '#FFE600',
+        accentColor: '#FF6B00',
+        rayColor: '#000000',
+        size: 42
+      },
+      clouds: {
+        color: '#FFFFFF',
+        outline: '#000000'
+      },
+      skyline: {
+        color: '#C5BDB1',
+        outline: '#000000',
+        antennaLight: '#FF3366',
+        windowStyle: 'none'
+      },
+      pipe: {
+        body: '#E2E8F0',
+        outline: '#000000',
+        badgeBg: '#FFE600',
+        badgeText: '⚠ DANGER',
+        badgeColor: '#000000',
+        collarBg: '#FFE600',
+        stripeColor: '#000000'
+      },
+      ground: {
+        tapeBg: '#FFE600',
+        stripeColor: '#000000',
+        paveColor: '#1E293B',
+        dashColor: '#FFFFFF'
+      },
+      starColor: '#FFE600',
+      particles: ['#FFE600', '#FF3366', '#000000', '#FFFFFF', '#00F0FF'],
+      cssVars: {
+        '--b-bg': '#F4EFE6',
+        '--b-device-bg': '#70D6FF',
+        '--ticker-bg': '#FFE600',
+        '--ticker-text': '#000000',
+        '--brand-icon-bg': '#FFE600',
+        '--btn-accent': '#00FF66',
+        '--body-dot': 'rgba(0, 0, 0, 0.8)',
+        '--body-grid': 'rgba(0, 0, 0, 0.05)'
+      }
+    },
+    {
+      id: 'cyberpunk',
+      name: 'CYBERPUNK NEON',
+      icon: '🌆',
+      tagline: 'Midnight Synthwave & Neon Lights',
+      swatches: ['#0E0824', '#FF007F', '#00F0FF', '#FFE600'],
+      sky: '#0E0824',
+      skyGradient: ['#0E0824', '#260D45', '#4C1066'],
+      skyType: 'gradient',
+      skyGridColor: 'rgba(255, 0, 128, 0.25)',
+      hasStars: true,
+      celestial: {
+        type: 'synthwave-sun',
+        color: '#FF007F',
+        accentColor: '#FFE600',
+        rayColor: '#00F0FF',
+        size: 46
+      },
+      clouds: {
+        color: '#261447',
+        outline: '#00F0FF'
+      },
+      skyline: {
+        color: '#150A2A',
+        outline: '#FF007F',
+        antennaLight: '#00F0FF',
+        windowStyle: 'neon',
+        windowColors: ['#00F0FF', '#FFE600', '#FF007F']
+      },
+      pipe: {
+        body: '#180E30',
+        outline: '#FF007F',
+        badgeBg: '#00F0FF',
+        badgeText: '⚡ NEON',
+        badgeColor: '#000000',
+        collarBg: '#FF007F',
+        stripeColor: '#00F0FF'
+      },
+      ground: {
+        tapeBg: '#00F0FF',
+        stripeColor: '#FF007F',
+        paveColor: '#0D061A',
+        dashColor: '#00F0FF'
+      },
+      starColor: '#00F0FF',
+      particles: ['#FF007F', '#00F0FF', '#FFE600', '#FFFFFF', '#9D4EDD'],
+      cssVars: {
+        '--b-bg': '#0B061A',
+        '--b-device-bg': '#0E0824',
+        '--ticker-bg': '#FF007F',
+        '--ticker-text': '#FFFFFF',
+        '--brand-icon-bg': '#00F0FF',
+        '--btn-accent': '#00F0FF',
+        '--body-dot': '#FF007F',
+        '--body-grid': 'rgba(0, 240, 255, 0.12)'
+      }
+    },
+    {
+      id: 'toxic',
+      name: 'TOXIC WASTELAND',
+      icon: '☣',
+      tagline: 'Radioactive Slime & Bio-Fallout',
+      swatches: ['#1A2510', '#A3E635', '#FACC15', '#22C55E'],
+      sky: '#1A2510',
+      skyGradient: ['#121C0B', '#243515', '#3A5222'],
+      skyType: 'gradient',
+      skyGridColor: 'rgba(163, 230, 53, 0.2)',
+      hasStars: true,
+      celestial: {
+        type: 'biohazard',
+        color: '#A3E635',
+        accentColor: '#FACC15',
+        rayColor: '#000000',
+        size: 44
+      },
+      clouds: {
+        color: '#34491E',
+        outline: '#A3E635'
+      },
+      skyline: {
+        color: '#16220E',
+        outline: '#A3E635',
+        antennaLight: '#FACC15',
+        windowStyle: 'smokestack'
+      },
+      pipe: {
+        body: '#263B18',
+        outline: '#A3E635',
+        badgeBg: '#A3E635',
+        badgeText: '☣ TOXIC',
+        badgeColor: '#000000',
+        collarBg: '#FACC15',
+        stripeColor: '#000000'
+      },
+      ground: {
+        tapeBg: '#A3E635',
+        stripeColor: '#000000',
+        paveColor: '#0E1708',
+        dashColor: '#A3E635'
+      },
+      starColor: '#A3E635',
+      particles: ['#A3E635', '#FACC15', '#000000', '#FFFFFF', '#4ADE80'],
+      cssVars: {
+        '--b-bg': '#141E0F',
+        '--b-device-bg': '#1A2510',
+        '--ticker-bg': '#A3E635',
+        '--ticker-text': '#000000',
+        '--brand-icon-bg': '#A3E635',
+        '--btn-accent': '#A3E635',
+        '--body-dot': '#A3E635',
+        '--body-grid': 'rgba(163, 230, 53, 0.1)'
+      }
+    },
+    {
+      id: 'sunset',
+      name: 'SUNSET OVERDRIVE',
+      icon: '🌅',
+      tagline: 'Blazing Tangerine & Electric Pink',
+      swatches: ['#FF5E36', '#FF007F', '#FFE600', '#2B0938'],
+      sky: '#FF5E36',
+      skyGradient: ['#3A0CA3', '#C72C41', '#FF5E36', '#FFB703'],
+      skyType: 'gradient',
+      skyGridColor: 'rgba(0, 0, 0, 0.12)',
+      hasStars: false,
+      celestial: {
+        type: 'sunset-disc',
+        color: '#FFE600',
+        accentColor: '#FF5E36',
+        rayColor: '#FF007F',
+        size: 46
+      },
+      clouds: {
+        color: '#FFDEB9',
+        outline: '#2B0938'
+      },
+      skyline: {
+        color: '#2B0938',
+        outline: '#FF5E36',
+        antennaLight: '#FFE600',
+        windowStyle: 'warm'
+      },
+      pipe: {
+        body: '#431247',
+        outline: '#000000',
+        badgeBg: '#FF007F',
+        badgeText: '🔥 HEAT',
+        badgeColor: '#FFFFFF',
+        collarBg: '#FFE600',
+        stripeColor: '#FF007F'
+      },
+      ground: {
+        tapeBg: '#FF5E36',
+        stripeColor: '#2B0938',
+        paveColor: '#1A0423',
+        dashColor: '#FFE600'
+      },
+      starColor: '#FFE600',
+      particles: ['#FF5E36', '#FFE600', '#FF007F', '#FFFFFF', '#3A0CA3'],
+      cssVars: {
+        '--b-bg': '#FDF2E9',
+        '--b-device-bg': '#FF5E36',
+        '--ticker-bg': '#FF5E36',
+        '--ticker-text': '#FFFFFF',
+        '--brand-icon-bg': '#FFE600',
+        '--btn-accent': '#FF5E36',
+        '--body-dot': '#FF5E36',
+        '--body-grid': 'rgba(255, 94, 54, 0.08)'
+      }
+    },
+    {
+      id: 'matrix',
+      name: 'MATRIX TERMINAL',
+      icon: '💻',
+      tagline: 'Phosphor Green CRT & Code Rain',
+      swatches: ['#040B05', '#00FF66', '#003B15', '#10B981'],
+      sky: '#040B05',
+      skyType: 'matrix-rain',
+      skyGridColor: 'rgba(0, 255, 102, 0.16)',
+      hasStars: true,
+      celestial: {
+        type: 'digital-glyph',
+        color: '#00FF66',
+        accentColor: '#003B15',
+        rayColor: '#00FF66',
+        size: 40
+      },
+      clouds: {
+        color: '#081F0E',
+        outline: '#00FF66'
+      },
+      skyline: {
+        color: '#051409',
+        outline: '#00FF66',
+        antennaLight: '#00FF66',
+        windowStyle: 'code'
+      },
+      pipe: {
+        body: '#0B2312',
+        outline: '#00FF66',
+        badgeBg: '#00FF66',
+        badgeText: '0xDEAD',
+        badgeColor: '#000000',
+        collarBg: '#00FF66',
+        stripeColor: '#040B05'
+      },
+      ground: {
+        tapeBg: '#00FF66',
+        stripeColor: '#040B05',
+        paveColor: '#020703',
+        dashColor: '#00FF66'
+      },
+      starColor: '#00FF66',
+      particles: ['#00FF66', '#39FF14', '#003B15', '#FFFFFF', '#10B981'],
+      cssVars: {
+        '--b-bg': '#040A05',
+        '--b-device-bg': '#040B05',
+        '--ticker-bg': '#00FF66',
+        '--ticker-text': '#000000',
+        '--brand-icon-bg': '#00FF66',
+        '--btn-accent': '#00FF66',
+        '--body-dot': '#00FF66',
+        '--body-grid': 'rgba(0, 255, 102, 0.12)'
+      }
+    },
+    {
+      id: 'noir',
+      name: 'NOIR MONOCHROME',
+      icon: '🏁',
+      tagline: 'Raw Ink Halftone Manga Comic',
+      swatches: ['#E5E5E5', '#000000', '#FFFFFF', '#888888'],
+      sky: '#E5E5E5',
+      skyType: 'halftone',
+      skyGridColor: 'rgba(0, 0, 0, 0.15)',
+      hasStars: false,
+      celestial: {
+        type: 'ink-black',
+        color: '#000000',
+        accentColor: '#FFFFFF',
+        rayColor: '#000000',
+        size: 44
+      },
+      clouds: {
+        color: '#FFFFFF',
+        outline: '#000000'
+      },
+      skyline: {
+        color: '#1A1A1A',
+        outline: '#000000',
+        antennaLight: '#FFFFFF',
+        windowStyle: 'white'
+      },
+      pipe: {
+        body: '#FFFFFF',
+        outline: '#000000',
+        badgeBg: '#000000',
+        badgeText: 'INK NOIR',
+        badgeColor: '#FFFFFF',
+        collarBg: '#FFFFFF',
+        stripeColor: '#000000'
+      },
+      ground: {
+        tapeBg: '#FFFFFF',
+        stripeColor: '#000000',
+        paveColor: '#000000',
+        dashColor: '#FFFFFF'
+      },
+      starColor: '#FFFFFF',
+      particles: ['#000000', '#FFFFFF', '#666666', '#CCCCCC'],
+      cssVars: {
+        '--b-bg': '#EAEAEA',
+        '--b-device-bg': '#E5E5E5',
+        '--ticker-bg': '#000000',
+        '--ticker-text': '#FFFFFF',
+        '--brand-icon-bg': '#000000',
+        '--btn-accent': '#000000',
+        '--body-dot': '#000000',
+        '--body-grid': 'rgba(0, 0, 0, 0.1)'
+      }
+    },
+    {
+      id: 'candy',
+      name: 'CANDY POP',
+      icon: '🍭',
+      tagline: 'Pastel Bubblegum & Mint Sweetness',
+      swatches: ['#FFA6C9', '#FFE600', '#B5E2FA', '#FF3385'],
+      sky: '#FFA6C9',
+      skyGradient: ['#FFC2D1', '#FFA6C9', '#FF80BF'],
+      skyType: 'gradient',
+      skyGridColor: 'rgba(255, 255, 255, 0.4)',
+      hasStars: false,
+      celestial: {
+        type: 'lollipop',
+        color: '#FFE600',
+        accentColor: '#FF3385',
+        rayColor: '#FF3385',
+        size: 42
+      },
+      clouds: {
+        color: '#E0F7FA',
+        outline: '#FF3385'
+      },
+      skyline: {
+        color: '#D4BBFF',
+        outline: '#FF3385',
+        antennaLight: '#00F0FF',
+        windowStyle: 'pastel'
+      },
+      pipe: {
+        body: '#B5E2FA',
+        outline: '#FF3385',
+        badgeBg: '#FFE600',
+        badgeText: '♥ YUMMY',
+        badgeColor: '#000000',
+        collarBg: '#FF66B2',
+        stripeColor: '#FFFFFF'
+      },
+      ground: {
+        tapeBg: '#FF66B2',
+        stripeColor: '#B5E2FA',
+        paveColor: '#6A0572',
+        dashColor: '#FFE600'
+      },
+      starColor: '#FFE600',
+      particles: ['#FF66B2', '#B5E2FA', '#FFE600', '#FFFFFF', '#D4BBFF'],
+      cssVars: {
+        '--b-bg': '#FFF0F5',
+        '--b-device-bg': '#FFA6C9',
+        '--ticker-bg': '#FF66B2',
+        '--ticker-text': '#FFFFFF',
+        '--brand-icon-bg': '#FF66B2',
+        '--btn-accent': '#FF66B2',
+        '--body-dot': '#FF66B2',
+        '--body-grid': 'rgba(255, 102, 178, 0.1)'
+      }
+    },
+    {
+      id: 'inferno',
+      name: 'LAVA INFERNO',
+      icon: '🌋',
+      tagline: 'Volcanic Core & Molten Magma',
+      swatches: ['#1C0606', '#FF3B00', '#FFAA00', '#FFE600'],
+      sky: '#1C0606',
+      skyGradient: ['#120202', '#280707', '#440D0D'],
+      skyType: 'embers',
+      skyGridColor: 'rgba(255, 69, 0, 0.2)',
+      hasStars: true,
+      celestial: {
+        type: 'magma-core',
+        color: '#FF3B00',
+        accentColor: '#FFAA00',
+        rayColor: '#FFAA00',
+        size: 45
+      },
+      clouds: {
+        color: '#341212',
+        outline: '#FF4500'
+      },
+      skyline: {
+        color: '#1D0808',
+        outline: '#FF3B00',
+        antennaLight: '#FFE600',
+        windowStyle: 'fire'
+      },
+      pipe: {
+        body: '#2D0D0D',
+        outline: '#FF4500',
+        badgeBg: '#FF3B00',
+        badgeText: '☠ LAVA',
+        badgeColor: '#FFFFFF',
+        collarBg: '#FF3B00',
+        stripeColor: '#FFE600'
+      },
+      ground: {
+        tapeBg: '#FF3B00',
+        stripeColor: '#FFE600',
+        paveColor: '#0E0303',
+        dashColor: '#FF6B00'
+      },
+      starColor: '#FFAA00',
+      particles: ['#FF3B00', '#FFAA00', '#FFE600', '#FFFFFF', '#8B0000'],
+      cssVars: {
+        '--b-bg': '#140505',
+        '--b-device-bg': '#1C0606',
+        '--ticker-bg': '#FF3B00',
+        '--ticker-text': '#FFFFFF',
+        '--brand-icon-bg': '#FF3B00',
+        '--btn-accent': '#FF3B00',
+        '--body-dot': '#FF3B00',
+        '--body-grid': 'rgba(255, 59, 0, 0.14)'
+      }
+    },
+    {
+      id: 'gameboy',
+      name: 'RETRO GAMEBOY',
+      icon: '👾',
+      tagline: '1989 Pea-Soup 4-Shade Nostalgia',
+      swatches: ['#9BBC0F', '#8BAC0F', '#306230', '#0F380F'],
+      sky: '#9BBC0F',
+      skyType: 'dither',
+      skyGridColor: 'rgba(15, 56, 15, 0.16)',
+      hasStars: false,
+      celestial: {
+        type: 'pixel-sun',
+        color: '#8BAC0F',
+        accentColor: '#306230',
+        rayColor: '#0F380F',
+        size: 42
+      },
+      clouds: {
+        color: '#9BBC0F',
+        outline: '#0F380F'
+      },
+      skyline: {
+        color: '#306230',
+        outline: '#0F380F',
+        antennaLight: '#0F380F',
+        windowStyle: 'pixel'
+      },
+      pipe: {
+        body: '#8BAC0F',
+        outline: '#0F380F',
+        badgeBg: '#306230',
+        badgeText: 'DMG-01',
+        badgeColor: '#9BBC0F',
+        collarBg: '#306230',
+        stripeColor: '#8BAC0F'
+      },
+      ground: {
+        tapeBg: '#8BAC0F',
+        stripeColor: '#0F380F',
+        paveColor: '#0F380F',
+        dashColor: '#9BBC0F'
+      },
+      starColor: '#8BAC0F',
+      particles: ['#0F380F', '#306230', '#8BAC0F', '#9BBC0F'],
+      cssVars: {
+        '--b-bg': '#87918B',
+        '--b-device-bg': '#9BBC0F',
+        '--ticker-bg': '#306230',
+        '--ticker-text': '#9BBC0F',
+        '--brand-icon-bg': '#8BAC0F',
+        '--btn-accent': '#306230',
+        '--body-dot': '#0F380F',
+        '--body-grid': 'rgba(15, 56, 15, 0.15)'
+      }
+    },
+    {
+      id: 'blueprint',
+      name: 'ARCHITECT BLUEPRINT',
+      icon: '📐',
+      tagline: 'Drafting CAD Blue & White Grid',
+      swatches: ['#0B3C5D', '#F9BA32', '#FFFFFF', '#1D2731'],
+      sky: '#0B3C5D',
+      skyType: 'blueprint',
+      skyGridColor: 'rgba(255, 255, 255, 0.22)',
+      hasStars: false,
+      celestial: {
+        type: 'compass-rose',
+        color: '#1D2731',
+        accentColor: '#F9BA32',
+        rayColor: '#FFFFFF',
+        size: 42
+      },
+      clouds: {
+        color: '#13293D',
+        outline: '#FFFFFF'
+      },
+      skyline: {
+        color: '#13293D',
+        outline: '#FFFFFF',
+        antennaLight: '#F9BA32',
+        windowStyle: 'schematic'
+      },
+      pipe: {
+        body: '#1D2731',
+        outline: '#FFFFFF',
+        badgeBg: '#F9BA32',
+        badgeText: 'SPEC.404',
+        badgeColor: '#000000',
+        collarBg: '#F9BA32',
+        stripeColor: '#0B3C5D'
+      },
+      ground: {
+        tapeBg: '#F9BA32',
+        stripeColor: '#0B3C5D',
+        paveColor: '#081622',
+        dashColor: '#FFFFFF'
+      },
+      starColor: '#F9BA32',
+      particles: ['#F9BA32', '#FFFFFF', '#0B3C5D', '#4682B4'],
+      cssVars: {
+        '--b-bg': '#071E30',
+        '--b-device-bg': '#0B3C5D',
+        '--ticker-bg': '#F9BA32',
+        '--ticker-text': '#000000',
+        '--brand-icon-bg': '#F9BA32',
+        '--btn-accent': '#F9BA32',
+        '--body-dot': '#FFFFFF',
+        '--body-grid': 'rgba(255, 255, 255, 0.1)'
+      }
+    }
+  ];
+
   class Game {
     constructor() {
       this.canvas = document.getElementById('gameCanvas');
@@ -80,6 +640,11 @@
       this.currentSkinIndex = parseInt(localStorage.getItem('brutalflap_skin_idx') || '0', 10);
       if (this.currentSkinIndex >= SKINS.length) this.currentSkinIndex = 0;
 
+      // Theme Management
+      const savedThemeId = localStorage.getItem('brutalflap_theme_id');
+      const foundThemeIdx = THEMES.findIndex(t => t.id === savedThemeId);
+      this.currentThemeIndex = foundThemeIdx !== -1 ? foundThemeIdx : 0;
+
       this.frameCount = 0;
       this.screenShake = 0;
       this.isNewHighScore = false;
@@ -92,11 +657,14 @@
       this.floatingTexts = [];
       this.clouds = [];
       this.buildings = [];
+      this.ambientParticles = [];
 
       this.initCanvasResolution();
       this.initBackgroundEnvironment();
       this.resetBird();
       this.setupControls();
+      this.applyThemeCSS(THEMES[this.currentThemeIndex]);
+      this.initThemeGalleryUI();
       this.updateUI();
 
       this.lastTime = performance.now();
@@ -128,10 +696,182 @@
           x: curX,
           width: width,
           height: height,
-          hasAntenna: Math.random() > 0.5
+          hasAntenna: Math.random() > 0.5,
+          windowCols: Math.floor(Math.random() * 3) + 2,
+          windowRows: Math.floor(Math.random() * 5) + 3,
+          seed: Math.random()
         });
         curX += width + 6;
       }
+
+      this.initAmbientParticles();
+    }
+
+    initAmbientParticles() {
+      this.ambientParticles = [];
+      const chars = ['0', '1', 'ｱ', 'ｲ', 'ｳ', 'ｴ', 'ｵ', 'ｶ', 'ｷ', 'ｸ', 'ｹ', 'ｺ', 'ｻ', 'ｼ', 'ｽ', 'ｾ', 'ｿ'];
+      for (let i = 0; i < 45; i++) {
+        this.ambientParticles.push({
+          x: Math.random() * CANVAS_WIDTH,
+          y: Math.random() * (CANVAS_HEIGHT - GROUND_HEIGHT),
+          speed: Math.random() * 1.5 + 0.6,
+          size: Math.random() * 3.5 + 2,
+          char: chars[Math.floor(Math.random() * chars.length)],
+          alpha: Math.random() * 0.7 + 0.3,
+          flicker: Math.random() * Math.PI * 2,
+          flickerSpeed: Math.random() * 0.08 + 0.03
+        });
+      }
+    }
+
+    updateAmbientParticles() {
+      const theme = THEMES[this.currentThemeIndex];
+      for (const p of this.ambientParticles) {
+        p.flicker += p.flickerSpeed;
+        if (theme.skyType === 'matrix-rain') {
+          p.y += p.speed * 2.8;
+          if (p.y > CANVAS_HEIGHT - GROUND_HEIGHT) {
+            p.y = -10;
+            p.x = Math.random() * CANVAS_WIDTH;
+            const chars = ['0', '1', 'ｱ', 'ｲ', 'ｳ', 'ｴ', 'ｵ', 'ｶ', 'ｷ', 'ｸ', 'ｹ', 'ｺ', 'ｻ', 'ｼ', 'ｽ', 'ｾ', 'ｿ'];
+            p.char = chars[Math.floor(Math.random() * chars.length)];
+          }
+        } else if (theme.skyType === 'embers') {
+          p.y -= p.speed * 1.2;
+          p.x += Math.sin(p.flicker) * 0.8;
+          if (p.y < 0) {
+            p.y = CANVAS_HEIGHT - GROUND_HEIGHT;
+            p.x = Math.random() * CANVAS_WIDTH;
+          }
+        }
+      }
+    }
+
+    applyThemeCSS(theme) {
+      if (!theme || !theme.cssVars) return;
+      for (const [key, val] of Object.entries(theme.cssVars)) {
+        document.documentElement.style.setProperty(key, val);
+      }
+    }
+
+    setTheme(indexOrId, announce = false) {
+      let nextIndex = 0;
+      if (typeof indexOrId === 'string') {
+        const found = THEMES.findIndex(t => t.id === indexOrId);
+        nextIndex = found !== -1 ? found : 0;
+      } else {
+        nextIndex = (indexOrId + THEMES.length) % THEMES.length;
+      }
+
+      this.currentThemeIndex = nextIndex;
+      const theme = THEMES[this.currentThemeIndex];
+      localStorage.setItem('brutalflap_theme_id', theme.id);
+
+      this.applyThemeCSS(theme);
+      this.updateThemeDisplay();
+
+      if (announce) {
+        this.addFloatingText(`${theme.icon} ${theme.name}`, CANVAS_WIDTH / 2, 75, theme.pipe.badgeBg);
+      }
+    }
+
+    cycleTheme(dir, announce = false) {
+      this.setTheme(this.currentThemeIndex + dir, announce);
+    }
+
+    randomTheme() {
+      let randIdx = Math.floor(Math.random() * THEMES.length);
+      if (THEMES.length > 1 && randIdx === this.currentThemeIndex) {
+        randIdx = (randIdx + 1) % THEMES.length;
+      }
+      this.setTheme(randIdx, true);
+    }
+
+    openThemeModal() {
+      const themeModal = document.getElementById('themeModal');
+      if (themeModal) {
+        themeModal.style.display = 'flex';
+        this.updateThemeDisplay();
+      }
+    }
+
+    closeThemeModal() {
+      const themeModal = document.getElementById('themeModal');
+      if (themeModal) {
+        themeModal.style.display = 'none';
+      }
+    }
+
+    updateThemeDisplay() {
+      const theme = THEMES[this.currentThemeIndex];
+      if (!theme) return;
+
+      const navLabel = document.getElementById('navThemeLabel');
+      if (navLabel) navLabel.innerText = theme.name;
+
+      const menuThemeIcon = document.getElementById('menuThemeIcon');
+      if (menuThemeIcon) menuThemeIcon.innerText = theme.icon;
+      const themeNameEl = document.getElementById('themeName');
+      if (themeNameEl) themeNameEl.innerText = theme.name;
+
+      const pauseThemeIcon = document.getElementById('pauseThemeIcon');
+      if (pauseThemeIcon) pauseThemeIcon.innerText = theme.icon;
+      const pauseThemeName = document.getElementById('pauseThemeName');
+      if (pauseThemeName) pauseThemeName.innerText = theme.name;
+
+      const overThemeIcon = document.getElementById('overThemeIcon');
+      if (overThemeIcon) overThemeIcon.innerText = theme.icon;
+      const overThemeName = document.getElementById('overThemeName');
+      if (overThemeName) overThemeName.innerText = theme.name;
+
+      const cards = document.querySelectorAll('.theme-card');
+      cards.forEach((card, idx) => {
+        const isActive = idx === this.currentThemeIndex;
+        card.classList.toggle('active', isActive);
+        let indicator = card.querySelector('.theme-active-indicator');
+        if (isActive && !indicator) {
+          indicator = document.createElement('div');
+          indicator.className = 'theme-active-indicator';
+          indicator.innerText = 'ACTIVE';
+          card.appendChild(indicator);
+        } else if (!isActive && indicator) {
+          indicator.remove();
+        }
+      });
+    }
+
+    initThemeGalleryUI() {
+      const grid = document.getElementById('themeGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      THEMES.forEach((theme, idx) => {
+        const card = document.createElement('div');
+        card.className = `theme-card ${idx === this.currentThemeIndex ? 'active' : ''}`;
+        card.setAttribute('data-theme-id', theme.id);
+
+        const swatchesHtml = theme.swatches.map(color => 
+          `<span class="theme-swatch" style="background-color: ${color};"></span>`
+        ).join('');
+
+        card.innerHTML = `
+          <div class="theme-card-top">
+            <span class="theme-card-icon">${theme.icon}</span>
+            <div class="theme-swatches">${swatchesHtml}</div>
+          </div>
+          <div>
+            <div class="theme-card-name">${theme.name}</div>
+            <div class="theme-card-tagline">${theme.tagline}</div>
+          </div>
+          ${idx === this.currentThemeIndex ? '<div class="theme-active-indicator">ACTIVE</div>' : ''}
+        `;
+
+        card.addEventListener('click', () => {
+          this.setTheme(idx, false);
+        });
+
+        grid.appendChild(card);
+      });
     }
 
     resetBird() {
@@ -174,6 +914,11 @@
         if (e && e.type === 'keydown') {
           if (e.code === 'KeyP') {
             this.togglePause();
+            e.preventDefault();
+            return;
+          }
+          if (e.code === 'KeyT') {
+            this.cycleTheme(1, true);
             e.preventDefault();
             return;
           }
@@ -241,6 +986,87 @@
         nextSkinBtn.addEventListener('click', (e) => {
           e.stopPropagation();
           this.cycleSkin(1);
+        });
+      }
+
+      // Theme Nav & HUD
+      const themeNavBtn = document.getElementById('themeNavBtn');
+      if (themeNavBtn) themeNavBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.openThemeModal();
+      });
+
+      const hudThemeBtn = document.getElementById('hudThemeBtn');
+      if (hudThemeBtn) hudThemeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.cycleTheme(1, true);
+      });
+
+      // Start Menu Theme Picker
+      const prevThemeBtn = document.getElementById('prevThemeBtn');
+      const nextThemeBtn = document.getElementById('nextThemeBtn');
+      const openGalleryFromMenuBtn = document.getElementById('openGalleryFromMenuBtn');
+      if (prevThemeBtn) prevThemeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.cycleTheme(-1, false);
+      });
+      if (nextThemeBtn) nextThemeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.cycleTheme(1, false);
+      });
+      if (openGalleryFromMenuBtn) openGalleryFromMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.openThemeModal();
+      });
+
+      // Pause Modal Theme Picker
+      const prevPauseThemeBtn = document.getElementById('prevPauseThemeBtn');
+      const nextPauseThemeBtn = document.getElementById('nextPauseThemeBtn');
+      const openGalleryFromPauseBtn = document.getElementById('openGalleryFromPauseBtn');
+      if (prevPauseThemeBtn) prevPauseThemeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.cycleTheme(-1, false);
+      });
+      if (nextPauseThemeBtn) nextPauseThemeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.cycleTheme(1, false);
+      });
+      if (openGalleryFromPauseBtn) openGalleryFromPauseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.openThemeModal();
+      });
+
+      // Game Over Modal Theme Picker
+      const prevOverThemeBtn = document.getElementById('prevOverThemeBtn');
+      const nextOverThemeBtn = document.getElementById('nextOverThemeBtn');
+      const openGalleryFromOverBtn = document.getElementById('openGalleryFromOverBtn');
+      if (prevOverThemeBtn) prevOverThemeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.cycleTheme(-1, false);
+      });
+      if (nextOverThemeBtn) nextOverThemeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.cycleTheme(1, false);
+      });
+      if (openGalleryFromOverBtn) openGalleryFromOverBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.openThemeModal();
+      });
+
+      // Gallery Modal Actions
+      const closeThemeModalBtn = document.getElementById('closeThemeModalBtn');
+      if (closeThemeModalBtn) closeThemeModalBtn.addEventListener('click', () => this.closeThemeModal());
+
+      const doneThemeBtn = document.getElementById('doneThemeBtn');
+      if (doneThemeBtn) doneThemeBtn.addEventListener('click', () => this.closeThemeModal());
+
+      const randomThemeBtn = document.getElementById('randomThemeBtn');
+      if (randomThemeBtn) randomThemeBtn.addEventListener('click', () => this.randomTheme());
+
+      const themeModal = document.getElementById('themeModal');
+      if (themeModal) {
+        themeModal.addEventListener('click', (e) => {
+          if (e.target === themeModal) this.closeThemeModal();
         });
       }
     }
@@ -334,7 +1160,8 @@
     }
 
     addExplosion(x, y) {
-      const colors = ['#FFE600', '#FF3366', '#000000', '#FFFFFF', '#00F0FF'];
+      const theme = THEMES[this.currentThemeIndex];
+      const colors = (theme && theme.particles) ? theme.particles : ['#FFE600', '#FF3366', '#000000', '#FFFFFF', '#00F0FF'];
       for (let i = 0; i < 35; i++) {
         const angle = Math.random() * Math.PI * 2;
         const speed = Math.random() * 7 + 2;
@@ -396,6 +1223,8 @@
           cloud.x = CANVAS_WIDTH + cloud.size;
         }
       }
+
+      this.updateAmbientParticles();
 
       // In MENU state, hover gently
       if (this.state === STATE.MENU) {
@@ -593,6 +1422,7 @@
     // --- Neo-Brutalist Rendering ---
     draw() {
       const ctx = this.ctx;
+      const theme = THEMES[this.currentThemeIndex] || THEMES[0];
       ctx.save();
 
       // Screen Shake
@@ -602,43 +1432,26 @@
         ctx.translate(sx, sy);
       }
 
-      // 1. Solid Neo-Brutalist Sky (Electric Cyan)
-      ctx.fillStyle = '#70D6FF';
-      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      // 1. Theme-Specific Sky & Atmospheric Grid
+      this.drawSky(ctx, theme);
 
-      // Subtle technical grid markings in sky
-      ctx.strokeStyle = 'rgba(0, 0, 0, 0.08)';
-      ctx.lineWidth = 1;
-      for (let x = 40; x < CANVAS_WIDTH; x += 40) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, CANVAS_HEIGHT - GROUND_HEIGHT);
-        ctx.stroke();
-      }
-      for (let y = 40; y < CANVAS_HEIGHT - GROUND_HEIGHT; y += 40) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(CANVAS_WIDTH, y);
-        ctx.stroke();
-      }
-
-      // 2. Bold Graphic Sun
-      this.drawBrutalistSun(ctx);
+      // 2. Bold Theme-Specific Celestial Body
+      this.drawCelestial(ctx, theme);
 
       // 3. Stylized Clouds
-      this.drawClouds(ctx);
+      this.drawClouds(ctx, theme);
 
-      // 4. Background Monolith Buildings
-      this.drawSkyline(ctx);
+      // 4. Background Monolith Buildings & Architecture
+      this.drawSkyline(ctx, theme);
 
-      // 5. Brutalist Hazard Pipes
-      this.drawPipes(ctx);
+      // 5. Brutalist Hazard Pipes with Theme Danger Stamping
+      this.drawPipes(ctx, theme);
 
       // 6. Collectible Stars
-      this.drawStars(ctx);
+      this.drawStars(ctx, theme);
 
       // 7. Ground with Hazard Caution Tape
-      this.drawGround(ctx);
+      this.drawGround(ctx, theme);
 
       // 8. Player Character
       this.drawBird(ctx);
@@ -652,47 +1465,405 @@
       ctx.restore();
     }
 
-    drawBrutalistSun(ctx) {
-      const sunX = 330;
-      const sunY = 110;
-      const sunR = 42;
+    drawSky(ctx, theme) {
+      const horizonY = CANVAS_HEIGHT - GROUND_HEIGHT;
+
+      // Base Sky Fill / Gradient
+      if (theme.skyGradient && theme.skyGradient.length >= 2) {
+        const grad = ctx.createLinearGradient(0, 0, 0, horizonY);
+        const stops = theme.skyGradient;
+        stops.forEach((color, i) => {
+          grad.addColorStop(i / (stops.length - 1), color);
+        });
+        ctx.fillStyle = grad;
+      } else {
+        ctx.fillStyle = theme.sky;
+      }
+      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
       ctx.save();
-      // Sun Rays (thick black ink lines)
-      ctx.strokeStyle = '#000000';
-      ctx.lineWidth = 4;
-      for (let i = 0; i < 8; i++) {
-        const angle = (i * Math.PI) / 4 + this.frameCount * 0.005;
-        const x1 = sunX + Math.cos(angle) * (sunR + 8);
-        const y1 = sunY + Math.sin(angle) * (sunR + 8);
-        const x2 = sunX + Math.cos(angle) * (sunR + 20);
-        const y2 = sunY + Math.sin(angle) * (sunR + 20);
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.stroke();
+
+      // Atmospheric Pattern Overlays
+      if (theme.skyType === 'perspective-grid') {
+        ctx.strokeStyle = theme.skyGridColor;
+        ctx.lineWidth = 1.5;
+        for (let y = 60; y < horizonY; y += 32) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(CANVAS_WIDTH, y);
+          ctx.stroke();
+        }
+        for (let x = 30; x < CANVAS_WIDTH; x += 35) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, horizonY);
+          ctx.stroke();
+        }
+      } else if (theme.skyType === 'matrix-rain') {
+        ctx.strokeStyle = theme.skyGridColor;
+        ctx.lineWidth = 1;
+        for (let y = 20; y < horizonY; y += 24) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(CANVAS_WIDTH, y);
+          ctx.stroke();
+        }
+
+        ctx.font = '700 12px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        for (const p of this.ambientParticles) {
+          ctx.fillStyle = `rgba(0, 255, 102, ${p.alpha * 0.85})`;
+          ctx.fillText(p.char, p.x, p.y);
+        }
+      } else if (theme.skyType === 'halftone') {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+        for (let x = 12; x < CANVAS_WIDTH; x += 20) {
+          for (let y = 12; y < horizonY; y += 20) {
+            ctx.beginPath();
+            ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      } else if (theme.skyType === 'dither') {
+        ctx.fillStyle = 'rgba(15, 56, 15, 0.08)';
+        for (let x = 0; x < CANVAS_WIDTH; x += 8) {
+          for (let y = 0; y < horizonY; y += 8) {
+            if ((x / 8 + y / 8) % 2 === 0) {
+              ctx.fillRect(x, y, 4, 4);
+            }
+          }
+        }
+      } else if (theme.skyType === 'blueprint') {
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.lineWidth = 1;
+        for (let x = 10; x < CANVAS_WIDTH; x += 10) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, horizonY);
+          ctx.stroke();
+        }
+        for (let y = 10; y < horizonY; y += 10) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(CANVAS_WIDTH, y);
+          ctx.stroke();
+        }
+        ctx.strokeStyle = theme.skyGridColor;
+        ctx.lineWidth = 1.5;
+        for (let x = 40; x < CANVAS_WIDTH; x += 40) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, horizonY);
+          ctx.stroke();
+        }
+        for (let y = 40; y < horizonY; y += 40) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(CANVAS_WIDTH, y);
+          ctx.stroke();
+        }
+      } else if (theme.skyType === 'embers') {
+        ctx.strokeStyle = theme.skyGridColor;
+        ctx.lineWidth = 1;
+        for (let y = 35; y < horizonY; y += 35) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(CANVAS_WIDTH, y);
+          ctx.stroke();
+        }
+        for (const p of this.ambientParticles) {
+          ctx.fillStyle = `rgba(255, ${Math.floor(80 + Math.sin(p.flicker) * 70)}, 0, ${p.alpha})`;
+          ctx.fillRect(p.x, p.y, p.size, p.size);
+        }
+      } else {
+        ctx.strokeStyle = theme.skyGridColor || 'rgba(0, 0, 0, 0.08)';
+        ctx.lineWidth = 1;
+        for (let x = 40; x < CANVAS_WIDTH; x += 40) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, horizonY);
+          ctx.stroke();
+        }
+        for (let y = 40; y < horizonY; y += 40) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(CANVAS_WIDTH, y);
+          ctx.stroke();
+        }
       }
 
-      // Sun Body (Solid bright yellow, thick black outline)
-      ctx.fillStyle = '#FFE600';
-      ctx.beginPath();
-      ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-
-      // Sharp sunglasses on the sun for pure neo-brutalist charm
-      ctx.fillStyle = '#000000';
-      ctx.fillRect(sunX - 26, sunY - 8, 22, 14);
-      ctx.fillRect(sunX + 4, sunY - 8, 22, 14);
-      ctx.fillRect(sunX - 6, sunY - 4, 12, 4);
+      // Background shimmering stars for night/space themes
+      if (theme.hasStars && theme.skyType !== 'matrix-rain' && theme.skyType !== 'embers') {
+        for (const p of this.ambientParticles) {
+          const alpha = 0.4 + Math.sin(p.flicker) * 0.35;
+          ctx.fillStyle = theme.starColor || '#FFFFFF';
+          ctx.globalAlpha = Math.max(0.1, alpha);
+          ctx.fillRect(p.x, p.y, p.size, p.size);
+          if (p.size > 3.8) {
+            ctx.fillRect(p.x - 2, p.y + 1, p.size + 4, 1);
+            ctx.fillRect(p.x + 1, p.y - 2, 1, p.size + 4);
+          }
+        }
+        ctx.globalAlpha = 1.0;
+      }
 
       ctx.restore();
     }
 
-    drawClouds(ctx) {
+    drawCelestial(ctx, theme) {
+      const sunX = 330;
+      const sunY = 110;
+      const c = theme.celestial || { type: 'sunglasses', color: '#FFE600', size: 42, rayColor: '#000000' };
+      const sunR = c.size || 42;
+
       ctx.save();
-      ctx.fillStyle = '#FFFFFF';
-      ctx.strokeStyle = '#000000';
+
+      if (c.type === 'sunglasses') {
+        ctx.strokeStyle = c.rayColor || '#000000';
+        ctx.lineWidth = 4;
+        for (let i = 0; i < 8; i++) {
+          const angle = (i * Math.PI) / 4 + this.frameCount * 0.005;
+          const x1 = sunX + Math.cos(angle) * (sunR + 8);
+          const y1 = sunY + Math.sin(angle) * (sunR + 8);
+          const x2 = sunX + Math.cos(angle) * (sunR + 20);
+          const y2 = sunY + Math.sin(angle) * (sunR + 20);
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.stroke();
+        }
+
+        ctx.fillStyle = c.color;
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(sunX - 26, sunY - 8, 22, 14);
+        ctx.fillRect(sunX + 4, sunY - 8, 22, 14);
+        ctx.fillRect(sunX - 6, sunY - 4, 12, 4);
+
+      } else if (c.type === 'synthwave-sun') {
+        const grad = ctx.createLinearGradient(sunX, sunY - sunR, sunX, sunY + sunR);
+        grad.addColorStop(0, '#FFE600');
+        grad.addColorStop(0.5, '#FF007F');
+        grad.addColorStop(1, '#9D4EDD');
+
+        ctx.strokeStyle = '#00F0FF';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR + 4, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
+        ctx.clip();
+
+        ctx.fillStyle = grad;
+        ctx.fillRect(sunX - sunR, sunY - sunR, sunR * 2, sunR * 2);
+
+        ctx.fillStyle = theme.sky;
+        for (let y = sunY - 4; y < sunY + sunR; y += 8) {
+          const gapH = Math.max(2, (y - sunY) * 0.14 + 2);
+          ctx.fillRect(sunX - sunR, y, sunR * 2, gapH);
+        }
+        ctx.restore();
+
+      } else if (c.type === 'biohazard') {
+        ctx.strokeStyle = '#A3E635';
+        ctx.lineWidth = 4;
+        ctx.fillStyle = c.color;
+
+        for (let i = 0; i < 6; i++) {
+          const angle = (i * Math.PI) / 3 + this.frameCount * 0.015;
+          const x1 = sunX + Math.cos(angle) * (sunR + 6);
+          const y1 = sunY + Math.sin(angle) * (sunR + 6);
+          const x2 = sunX + Math.cos(angle) * (sunR + 18);
+          const y2 = sunY + Math.sin(angle) * (sunR + 18);
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.stroke();
+        }
+
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
+
+        ctx.fillStyle = '#000000';
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, 7, 0, Math.PI * 2);
+        ctx.fill();
+
+        for (let i = 0; i < 3; i++) {
+          const a = (i * Math.PI * 2) / 3 - Math.PI / 2 + this.frameCount * 0.01;
+          const bx = sunX + Math.cos(a) * 16;
+          const by = sunY + Math.sin(a) * 16;
+          ctx.beginPath();
+          ctx.arc(bx, by, 9, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+
+      } else if (c.type === 'digital-glyph') {
+        ctx.strokeStyle = '#00FF66';
+        ctx.lineWidth = 3.5;
+        ctx.fillStyle = '#020C04';
+
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+          const a = (i * Math.PI) / 3 + this.frameCount * 0.008;
+          const hx = sunX + Math.cos(a) * sunR;
+          const hy = sunY + Math.sin(a) * sunR;
+          if (i === 0) ctx.moveTo(hx, hy);
+          else ctx.lineTo(hx, hy);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(sunX - sunR - 12, sunY);
+        ctx.lineTo(sunX + sunR + 12, sunY);
+        ctx.moveTo(sunX, sunY - sunR - 12);
+        ctx.lineTo(sunX, sunY + sunR + 12);
+        ctx.stroke();
+
+        ctx.fillStyle = '#00FF66';
+        ctx.fillRect(sunX - 10, sunY - 10, 20, 20);
+        ctx.fillStyle = '#040B05';
+        ctx.fillRect(sunX - 5, sunY - 5, 10, 10);
+
+      } else if (c.type === 'ink-black') {
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 4;
+        for (let i = 0; i < 12; i++) {
+          const angle = (i * Math.PI) / 6;
+          const length = i % 2 === 0 ? 22 : 12;
+          const x1 = sunX + Math.cos(angle) * (sunR + 6);
+          const y1 = sunY + Math.sin(angle) * (sunR + 6);
+          const x2 = sunX + Math.cos(angle) * (sunR + 6 + length);
+          const y2 = sunY + Math.sin(angle) * (sunR + 6 + length);
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.stroke();
+        }
+
+        ctx.fillStyle = '#000000';
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+      } else if (c.type === 'lollipop') {
+        ctx.fillStyle = c.color;
+        ctx.strokeStyle = '#FF3385';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        for (let t = 0; t < 18; t += 0.3) {
+          const r = t * 2.2;
+          const a = t + this.frameCount * 0.03;
+          const x = sunX + Math.cos(a) * r;
+          const y = sunY + Math.sin(a) * r;
+          if (t === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+      } else if (c.type === 'magma-core') {
+        ctx.strokeStyle = '#FFAA00';
+        ctx.lineWidth = 4;
+        for (let i = 0; i < 8; i++) {
+          const angle = (i * Math.PI) / 4 + Math.sin(this.frameCount * 0.05 + i) * 0.15;
+          const reach = 16 + Math.sin(this.frameCount * 0.08 + i) * 8;
+          const x1 = sunX + Math.cos(angle) * (sunR + 4);
+          const y1 = sunY + Math.sin(angle) * (sunR + 4);
+          const x2 = sunX + Math.cos(angle) * (sunR + reach);
+          const y2 = sunY + Math.sin(angle) * (sunR + reach);
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.stroke();
+        }
+
+        ctx.fillStyle = '#FF3B00';
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#000000';
+        ctx.stroke();
+
+        ctx.fillStyle = '#FFE600';
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR * 0.55, 0, Math.PI * 2);
+        ctx.fill();
+
+      } else if (c.type === 'pixel-sun') {
+        ctx.fillStyle = c.color;
+        ctx.strokeStyle = c.rayColor;
+        ctx.lineWidth = 3;
+
+        const s = sunR * 1.6;
+        ctx.fillRect(sunX - s / 2, sunY - s / 2, s, s);
+        ctx.strokeRect(sunX - s / 2, sunY - s / 2, s, s);
+
+        for (let i = -1; i <= 1; i += 2) {
+          ctx.fillRect(sunX + i * (s / 2 + 8) - 4, sunY - 4, 8, 8);
+          ctx.fillRect(sunX - 4, sunY + i * (s / 2 + 8) - 4, 8, 8);
+        }
+
+      } else if (c.type === 'compass-rose') {
+        ctx.strokeStyle = '#FFFFFF';
+        ctx.lineWidth = 2.5;
+
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR * 0.45, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.fillStyle = '#F9BA32';
+        for (let i = 0; i < 4; i++) {
+          const a = (i * Math.PI) / 2;
+          ctx.beginPath();
+          ctx.moveTo(sunX + Math.cos(a) * (sunR + 14), sunY + Math.sin(a) * (sunR + 14));
+          ctx.lineTo(sunX + Math.cos(a + 0.3) * (sunR * 0.5), sunY + Math.sin(a + 0.3) * (sunR * 0.5));
+          ctx.lineTo(sunX + Math.cos(a - 0.3) * (sunR * 0.5), sunY + Math.sin(a - 0.3) * (sunR * 0.5));
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+        }
+      } else {
+        ctx.fillStyle = c.color;
+        ctx.strokeStyle = c.rayColor;
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+      }
+
+      ctx.restore();
+    }
+
+    drawClouds(ctx, theme) {
+      ctx.save();
+      ctx.fillStyle = theme.clouds.color;
+      ctx.strokeStyle = theme.clouds.outline;
       ctx.lineWidth = 3.5;
 
       for (const c of this.clouds) {
@@ -706,88 +1877,132 @@
       ctx.restore();
     }
 
-    drawSkyline(ctx) {
+    drawSkyline(ctx, theme) {
       const horizonY = CANVAS_HEIGHT - GROUND_HEIGHT;
       ctx.save();
-      ctx.fillStyle = '#C5BDB1';
-      ctx.strokeStyle = '#000000';
+      ctx.fillStyle = theme.skyline.color;
+      ctx.strokeStyle = theme.skyline.outline;
       ctx.lineWidth = 3;
 
       for (const b of this.buildings) {
         ctx.fillRect(b.x, horizonY - b.height, b.width, b.height);
         ctx.strokeRect(b.x, horizonY - b.height, b.width, b.height);
 
-        // Antenna
+        if (theme.skyline.windowStyle === 'neon') {
+          const colors = theme.skyline.windowColors || ['#00F0FF', '#FFE600', '#FF007F'];
+          const winW = 4;
+          const winH = 5;
+          for (let wy = horizonY - b.height + 12; wy < horizonY - 14; wy += 14) {
+            for (let wx = b.x + 6; wx < b.x + b.width - 6; wx += 9) {
+              const colorIdx = Math.floor((b.seed * 10 + wx + wy) % colors.length);
+              ctx.fillStyle = colors[colorIdx];
+              ctx.fillRect(wx, wy, winW, winH);
+            }
+          }
+          ctx.fillStyle = theme.skyline.color;
+        } else if (theme.skyline.windowStyle === 'code') {
+          ctx.fillStyle = '#00FF66';
+          for (let wy = horizonY - b.height + 10; wy < horizonY - 10; wy += 12) {
+            ctx.fillRect(b.x + 5, wy, Math.min(b.width - 10, 14), 2.5);
+          }
+          ctx.fillStyle = theme.skyline.color;
+        } else if (theme.skyline.windowStyle === 'fire') {
+          ctx.fillStyle = '#FF5E00';
+          for (let wy = horizonY - b.height + 14; wy < horizonY - 12; wy += 16) {
+            ctx.fillRect(b.x + 6, wy, b.width - 12, 3);
+          }
+          ctx.fillStyle = theme.skyline.color;
+        } else if (theme.skyline.windowStyle === 'schematic') {
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.moveTo(b.x, horizonY - b.height);
+          ctx.lineTo(b.x + b.width, horizonY);
+          ctx.moveTo(b.x + b.width, horizonY - b.height);
+          ctx.lineTo(b.x, horizonY);
+          ctx.stroke();
+          ctx.strokeStyle = theme.skyline.outline;
+          ctx.lineWidth = 3;
+        } else if (theme.skyline.windowStyle === 'white') {
+          ctx.fillStyle = '#FFFFFF';
+          for (let wy = horizonY - b.height + 14; wy < horizonY - 14; wy += 16) {
+            ctx.fillRect(b.x + 6, wy, 5, 7);
+          }
+          ctx.fillStyle = theme.skyline.color;
+        } else if (theme.skyline.windowStyle === 'warm') {
+          ctx.fillStyle = '#FFE600';
+          for (let wy = horizonY - b.height + 12; wy < horizonY - 12; wy += 14) {
+            ctx.fillRect(b.x + 6, wy, 6, 6);
+          }
+          ctx.fillStyle = theme.skyline.color;
+        }
+
         if (b.hasAntenna) {
+          ctx.strokeStyle = theme.skyline.outline;
           ctx.beginPath();
           ctx.moveTo(b.x + b.width / 2, horizonY - b.height);
           ctx.lineTo(b.x + b.width / 2, horizonY - b.height - 18);
           ctx.stroke();
 
-          ctx.fillStyle = '#FF3366';
+          ctx.fillStyle = theme.skyline.antennaLight || '#FF3366';
           ctx.beginPath();
           ctx.arc(b.x + b.width / 2, horizonY - b.height - 18, 3.5, 0, Math.PI * 2);
           ctx.fill();
           ctx.stroke();
-          ctx.fillStyle = '#C5BDB1';
+          ctx.fillStyle = theme.skyline.color;
         }
       }
       ctx.restore();
     }
 
-    drawPipes(ctx) {
+    drawPipes(ctx, theme) {
       for (const p of this.pipes) {
         ctx.save();
-        // Top Pipe
-        this.renderBrutalistPipe(ctx, p.x, 0, p.width, p.topHeight, true);
-        // Bottom Pipe
-        this.renderBrutalistPipe(ctx, p.x, p.bottomY, p.width, p.bottomHeight, false);
+        this.renderBrutalistPipe(ctx, p.x, 0, p.width, p.topHeight, true, theme);
+        this.renderBrutalistPipe(ctx, p.x, p.bottomY, p.width, p.bottomHeight, false, theme);
         ctx.restore();
       }
     }
 
-    renderBrutalistPipe(ctx, x, y, width, height, isTop) {
+    renderBrutalistPipe(ctx, x, y, width, height, isTop, theme) {
       if (height <= 0) return;
 
       const collarH = 28;
       const collarW = width + 10;
       const collarX = x - 5;
       const collarY = isTop ? height - collarH : y;
+      const pipeCfg = theme.pipe;
 
       ctx.save();
-      // Main Column: Industrial Concrete Gray
-      ctx.fillStyle = '#E2E8F0';
-      ctx.strokeStyle = '#000000';
+      ctx.fillStyle = pipeCfg.body;
+      ctx.strokeStyle = pipeCfg.outline;
       ctx.lineWidth = 4;
 
       ctx.fillRect(x, y, width, height);
       ctx.strokeRect(x, y, width, height);
 
-      // Warning Stamp in middle of pipe column if tall enough
       if (height > 120) {
-        const labelY = isTop ? y + height / 2 : y + height / 2;
-        ctx.fillStyle = '#FFE600';
-        ctx.fillRect(x + 10, labelY - 14, width - 20, 26);
-        ctx.strokeRect(x + 10, labelY - 14, width - 20, 26);
+        const labelY = y + height / 2;
+        ctx.fillStyle = pipeCfg.badgeBg;
+        ctx.fillRect(x + 8, labelY - 14, width - 16, 26);
+        ctx.strokeRect(x + 8, labelY - 14, width - 16, 26);
 
-        ctx.fillStyle = '#000000';
-        ctx.font = '900 13px "JetBrains Mono", monospace';
+        ctx.fillStyle = pipeCfg.badgeColor || '#000000';
+        ctx.font = '900 12px "JetBrains Mono", monospace';
         ctx.textAlign = 'center';
-        ctx.fillText('⚠ DANGER', x + width / 2, labelY + 4);
+        ctx.fillText(pipeCfg.badgeText || '⚠ DANGER', x + width / 2, labelY + 4);
       }
 
-      // Collar (Rim) with Diagonal Caution Hazard Stripes
-      ctx.fillStyle = '#FFE600';
+      ctx.fillStyle = pipeCfg.collarBg;
       ctx.fillRect(collarX, collarY, collarW, collarH);
       ctx.strokeRect(collarX, collarY, collarW, collarH);
 
-      // Black diagonal hazard stripes on collar
       ctx.save();
       ctx.beginPath();
       ctx.rect(collarX, collarY, collarW, collarH);
       ctx.clip();
 
-      ctx.fillStyle = '#000000';
+      ctx.fillStyle = pipeCfg.stripeColor;
       const stripeWidth = 12;
       for (let sx = collarX - collarH; sx < collarX + collarW + collarH; sx += stripeWidth * 2) {
         ctx.beginPath();
@@ -800,21 +2015,18 @@
       }
       ctx.restore();
 
-      // Border around collar
       ctx.strokeRect(collarX, collarY, collarW, collarH);
-
       ctx.restore();
     }
 
-    drawStars(ctx) {
+    drawStars(ctx, theme) {
       for (const orb of this.orbs) {
         ctx.save();
         const dyHover = Math.sin(orb.phase) * 10;
         ctx.translate(orb.x, orb.y + dyHover);
 
-        // Chunky 5-Point Comic Star
-        ctx.fillStyle = '#FFE600';
-        ctx.strokeStyle = '#000000';
+        ctx.fillStyle = theme.starColor || '#FFE600';
+        ctx.strokeStyle = theme.pipe.outline || '#000000';
         ctx.lineWidth = 3.5;
 
         this.drawStarShape(ctx, 0, 0, 5, orb.radius, orb.radius * 0.5);
@@ -848,17 +2060,16 @@
       ctx.closePath();
     }
 
-    drawGround(ctx) {
+    drawGround(ctx, theme) {
       const groundY = CANVAS_HEIGHT - GROUND_HEIGHT;
       const tapeHeight = 22;
+      const gCfg = theme.ground;
 
       ctx.save();
 
-      // 1. Hazard Caution Tape on Top Edge
-      ctx.fillStyle = '#FFE600';
+      ctx.fillStyle = gCfg.tapeBg;
       ctx.fillRect(0, groundY, CANVAS_WIDTH, tapeHeight);
 
-      // Diagonal black stripes on hazard tape
       const scrollSpeed = this.state === STATE.PLAYING ? PIPE_SPEED : 1.2;
       const offset = (this.frameCount * scrollSpeed) % 24;
 
@@ -867,7 +2078,7 @@
       ctx.rect(0, groundY, CANVAS_WIDTH, tapeHeight);
       ctx.clip();
 
-      ctx.fillStyle = '#000000';
+      ctx.fillStyle = gCfg.stripeColor;
       for (let sx = -30 - offset; sx < CANVAS_WIDTH + 30; sx += 24) {
         ctx.beginPath();
         ctx.moveTo(sx, groundY + tapeHeight);
@@ -879,20 +2090,17 @@
       }
       ctx.restore();
 
-      // Thick black dividing line below hazard tape
-      ctx.strokeStyle = '#000000';
+      ctx.strokeStyle = theme.pipe.outline || '#000000';
       ctx.lineWidth = 4;
       ctx.beginPath();
       ctx.moveTo(0, groundY + tapeHeight);
       ctx.lineTo(CANVAS_WIDTH, groundY + tapeHeight);
       ctx.stroke();
 
-      // 2. Industrial Concrete Pavement Below
-      ctx.fillStyle = '#1E293B';
+      ctx.fillStyle = gCfg.paveColor;
       ctx.fillRect(0, groundY + tapeHeight, CANVAS_WIDTH, GROUND_HEIGHT - tapeHeight);
 
-      // Technical dashed markings
-      ctx.strokeStyle = '#FFFFFF';
+      ctx.strokeStyle = gCfg.dashColor;
       ctx.lineWidth = 3;
       ctx.setLineDash([16, 16]);
       ctx.beginPath();
@@ -901,7 +2109,6 @@
       ctx.stroke();
       ctx.setLineDash([]);
 
-      // Top ground border
       ctx.beginPath();
       ctx.moveTo(0, groundY);
       ctx.lineTo(CANVAS_WIDTH, groundY);
@@ -1184,6 +2391,7 @@
       }
 
       this.updateSkinDisplay();
+      this.updateThemeDisplay();
       this.updateHUD();
     }
 

@@ -25,6 +25,7 @@
         <h1 class="brand-title">BRUTAL // FLAP</h1>
       </div>
       <div class="nav-actions">
+        <button id="themeNavBtn" class="nav-btn theme-nav-btn" title="Open Theme Gallery">🎨 <span id="navThemeLabel">THEME</span></button>
         <button id="musicBtn" class="nav-btn" title="Toggle Synth Track">🎵 MUSIC: OFF</button>
         <button id="muteBtn" class="nav-btn" title="Toggle Audio FX">🔊 SFX: ON</button>
       </div>
@@ -45,7 +46,10 @@
           <span>★</span>
           <span id="hudOrbs">0</span>
         </div>
-        <button id="pauseBtn" class="hud-btn" title="Pause Game" aria-label="Pause Game">⏸</button>
+        <div class="hud-controls">
+          <button id="hudThemeBtn" class="hud-btn" title="Cycle Theme (T)" aria-label="Cycle Theme">🎨</button>
+          <button id="pauseBtn" class="hud-btn" title="Pause Game (P)" aria-label="Pause Game">⏸</button>
+        </div>
       </div>
 
       <!-- Start / Menu Modal -->
@@ -63,6 +67,22 @@
               <div id="skinName" class="skin-name">CHUNKY BIRD</div>
             </div>
             <button id="nextSkinBtn" class="skin-arrow-btn" aria-label="Next Pilot">▶</button>
+          </div>
+
+          <!-- Environment Theme Selector -->
+          <div class="skin-selector theme-picker-box">
+            <button id="prevThemeBtn" class="skin-arrow-btn" aria-label="Previous Theme">◀</button>
+            <div class="theme-info-container" id="openGalleryFromMenuBtn" title="Click to view all themes">
+              <div class="theme-header-row">
+                <span class="skin-label">THEME / BACKGROUND</span>
+                <span class="theme-badge-click">ALL ⊞</span>
+              </div>
+              <div class="theme-title-row">
+                <span id="menuThemeIcon" class="theme-icon-inline">⚡</span>
+                <span id="themeName" class="skin-name">ELECTRIC CYAN</span>
+              </div>
+            </div>
+            <button id="nextThemeBtn" class="skin-arrow-btn" aria-label="Next Theme">▶</button>
           </div>
 
           <!-- All-Time Best Score -->
@@ -89,6 +109,20 @@
           <span class="badge-brutal" style="background: var(--b-pink); color: #fff;">HALTED</span>
           <h2 class="game-title">HARD<br>PAUSE</h2>
           <p class="subtitle">PRESS RESUME WHEN READY</p>
+
+          <!-- Theme quick switch during pause -->
+          <div class="skin-selector theme-picker-box">
+            <button id="prevPauseThemeBtn" class="skin-arrow-btn" aria-label="Previous Theme">◀</button>
+            <div class="theme-info-container" id="openGalleryFromPauseBtn">
+              <div class="skin-label">ACTIVE THEME</div>
+              <div class="theme-title-row">
+                <span id="pauseThemeIcon" class="theme-icon-inline">⚡</span>
+                <span id="pauseThemeName" class="skin-name">ELECTRIC CYAN</span>
+              </div>
+            </div>
+            <button id="nextPauseThemeBtn" class="skin-arrow-btn" aria-label="Next Theme">▶</button>
+          </div>
+
           <button id="resumeBtn" class="cta-button">RESUME FLAP</button>
           <div class="prompt-hint">
             <span>PRESS</span>
@@ -132,12 +166,48 @@
             </div>
           </div>
 
+          <!-- Quick Theme Switch on Game Over -->
+          <div class="skin-selector theme-picker-box" style="margin-top: 2px;">
+            <button id="prevOverThemeBtn" class="skin-arrow-btn" aria-label="Previous Theme">◀</button>
+            <div class="theme-info-container" id="openGalleryFromOverBtn">
+              <div class="skin-label">CHANGE ENVIRONMENT</div>
+              <div class="theme-title-row">
+                <span id="overThemeIcon" class="theme-icon-inline">⚡</span>
+                <span id="overThemeName" class="skin-name">ELECTRIC CYAN</span>
+              </div>
+            </div>
+            <button id="nextOverThemeBtn" class="skin-arrow-btn" aria-label="Next Theme">▶</button>
+          </div>
+
           <button id="restartBtn" class="cta-button btn-restart">RETRY MISSION</button>
 
           <div class="prompt-hint">
             <span>PRESS</span>
             <span class="kbd">SPACE</span>
             <span>OR CLICK TO RETRY</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme Gallery Modal -->
+      <div id="themeModal" class="overlay-modal" style="display: none;">
+        <div class="modal-card theme-gallery-card">
+          <div class="theme-gallery-header">
+            <div>
+              <span class="badge-brutal">VISUAL ENVIRONMENTS</span>
+              <h2 class="gallery-title">SELECT THEME</h2>
+            </div>
+            <button id="closeThemeModalBtn" class="modal-close-btn" aria-label="Close Themes">✕</button>
+          </div>
+          <p class="subtitle">CHANGE BACKGROUNDS, SKYLINE, PIPES &amp; ATMOSPHERE</p>
+          
+          <div id="themeGrid" class="theme-grid">
+            <!-- Populated dynamically via JS -->
+          </div>
+
+          <div class="theme-gallery-actions">
+            <button id="randomThemeBtn" class="nav-btn random-theme-btn">🎲 RANDOM THEME</button>
+            <button id="doneThemeBtn" class="nav-btn done-theme-btn">APPLY &amp; CLOSE</button>
           </div>
         </div>
       </div>
@@ -150,6 +220,9 @@
       </div>
       <div class="guide-item">
         <span class="kbd">P</span> PAUSE
+      </div>
+      <div class="guide-item">
+        <span class="kbd">T</span> THEME
       </div>
     </footer>
   </main>
