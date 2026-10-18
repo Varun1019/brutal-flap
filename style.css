@@ -1,0 +1,585 @@
+/* ==========================================================================
+   BRUTAL FLAP // NEO-BRUTALISM DESIGN SYSTEM
+   High contrast, heavy black ink borders, zero-blur drop shadows,
+   industrial hazard accents, and bold grotesque typography.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;900&family=JetBrains+Mono:wght@500;700;800&family=Archivo+Black&display=swap');
+
+:root {
+  --b-yellow: #FFE600;
+  --b-pink: #FF3366;
+  --b-cyan: #00F0FF;
+  --b-green: #00FF66;
+  --b-purple: #9D4EDD;
+  --b-orange: #FF6B00;
+  --b-white: #FFFFFF;
+  --b-black: #000000;
+  --b-bg: #F4EFE6;
+  --b-concrete: #E5DFD5;
+  
+  --border-thick: 4px solid var(--b-black);
+  --border-med: 3px solid var(--b-black);
+  --border-thin: 2px solid var(--b-black);
+  
+  --shadow-main: 6px 6px 0px var(--b-black);
+  --shadow-lg: 8px 8px 0px var(--b-black);
+  --shadow-sm: 4px 4px 0px var(--b-black);
+  --shadow-pressed: 2px 2px 0px var(--b-black);
+  
+  --font-display: 'Archivo Black', 'Space Grotesk', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--b-bg);
+  /* Industrial Dotted Blueprint Pattern */
+  background-image: 
+    radial-gradient(var(--b-black) 1.2px, transparent 1.2px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px, 120px 120px, 120px 120px;
+  color: var(--b-black);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  padding: 16px;
+}
+
+/* Hazard Caution Ticker Banner */
+.hazard-ticker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: var(--b-yellow);
+  border-bottom: var(--border-med);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 100;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 32px;
+  white-space: nowrap;
+  animation: ticker 18s linear infinite;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Main Viewport Wrapper */
+.game-viewport-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+/* Brutalist Header Strip */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 16px;
+  background: var(--b-white);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-main);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--b-yellow);
+  border: var(--border-thin);
+  font-size: 18px;
+  box-shadow: 2px 2px 0px var(--b-black);
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: var(--b-black);
+  text-transform: uppercase;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-btn {
+  background: var(--b-white);
+  border: var(--border-med);
+  color: var(--b-black);
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-btn:hover {
+  background: var(--b-yellow);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--b-black);
+}
+
+.nav-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-pressed);
+}
+
+.nav-btn.active {
+  background: var(--b-green);
+}
+
+/* Brutalist Game Device Frame */
+.game-device {
+  position: relative;
+  width: 420px;
+  height: 640px;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-lg);
+  background: #70D6FF;
+  overflow: hidden;
+}
+
+#gameCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+/* In-Game Brutalist HUD */
+.game-hud {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.hud-pill {
+  background: var(--b-white);
+  border: var(--border-thick);
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.score-display {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--b-black);
+}
+
+.orb-pill {
+  background: var(--b-yellow);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--b-black);
+}
+
+.hud-btn {
+  pointer-events: auto;
+  background: var(--b-white);
+  border: var(--border-thick);
+  color: var(--b-black);
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 900;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.hud-btn:hover {
+  background: var(--b-yellow);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--b-black);
+}
+
+.hud-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-pressed);
+}
+
+/* Brutalist Modal Overlays */
+.overlay-modal {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 30;
+  text-align: center;
+}
+
+.modal-card {
+  background: var(--b-white);
+  border: var(--border-thick);
+  padding: 26px 20px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 10px 10px 0px var(--b-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+/* Stamped Brutalist Badges */
+.badge-brutal {
+  display: inline-block;
+  background: var(--b-yellow);
+  color: var(--b-black);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border: var(--border-thin);
+  box-shadow: 2px 2px 0px var(--b-black);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+
+.badge-new-best {
+  background: var(--b-pink);
+  color: var(--b-white);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border: var(--border-thin);
+  box-shadow: 3px 3px 0px var(--b-black);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transform: rotate(2.5deg);
+  animation: brutalPulse 0.8s steps(2, start) infinite alternate;
+}
+
+@keyframes brutalPulse {
+  0% { transform: rotate(2deg) scale(1); }
+  100% { transform: rotate(-2deg) scale(1.05); }
+}
+
+.game-title {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--b-black);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.game-title span {
+  display: inline-block;
+  background: var(--b-yellow);
+  padding: 0 6px;
+  border: var(--border-thin);
+  box-shadow: 3px 3px 0px var(--b-black);
+  transform: rotate(-1deg);
+}
+
+.subtitle {
+  color: #333333;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Skin Selector in Neo-Brutalist Box */
+.skin-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: var(--b-concrete);
+  border: var(--border-med);
+  padding: 8px 12px;
+  box-shadow: 3px 3px 0px var(--b-black);
+}
+
+.skin-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  color: #444444;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skin-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--b-black);
+  text-transform: uppercase;
+}
+
+.skin-arrow-btn {
+  background: var(--b-white);
+  border: var(--border-thin);
+  color: var(--b-black);
+  font-family: var(--font-mono);
+  font-weight: 900;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--b-black);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+.skin-arrow-btn:hover {
+  background: var(--b-yellow);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--b-black);
+}
+
+.skin-arrow-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--b-black);
+}
+
+/* Stats Row */
+.stats-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.stat-box {
+  flex: 1;
+  background: var(--b-white);
+  border: var(--border-med);
+  padding: 8px 10px;
+  box-shadow: 3px 3px 0px var(--b-black);
+  text-align: left;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #555555;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--b-black);
+  margin-top: 2px;
+}
+
+/* Medals Box */
+.medal-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--b-yellow);
+  border: var(--border-med);
+  padding: 10px 14px;
+  width: 100%;
+  box-shadow: 4px 4px 0px var(--b-black);
+}
+
+.medal-icon {
+  font-size: 32px;
+  background: var(--b-white);
+  border: var(--border-thin);
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 0px var(--b-black);
+}
+
+.medal-info {
+  text-align: left;
+}
+
+.medal-heading {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  color: #333333;
+  text-transform: uppercase;
+}
+
+.medal-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--b-black);
+}
+
+/* Brutalist Chunky Buttons */
+.cta-button {
+  width: 100%;
+  padding: 14px 20px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--b-black);
+  background: var(--b-green);
+  border: var(--border-thick);
+  cursor: pointer;
+  box-shadow: var(--shadow-main);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+.cta-button:hover {
+  background: var(--b-yellow);
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-pressed);
+}
+
+.btn-restart {
+  background: var(--b-pink);
+  color: var(--b-white);
+}
+
+.btn-restart:hover {
+  background: var(--b-yellow);
+  color: var(--b-black);
+}
+
+.prompt-hint {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kbd {
+  background: var(--b-black);
+  border: var(--border-thin);
+  color: var(--b-white);
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  box-shadow: 2px 2px 0px var(--b-black);
+}
+
+/* Bottom Controls Guide */
+.footer-guide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--b-black);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.guide-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--b-white);
+  border: var(--border-med);
+  padding: 4px 10px;
+  box-shadow: 3px 3px 0px var(--b-black);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 460px) {
+  body {
+    padding: 8px;
+  }
+  .game-device {
+    width: 100vw;
+    height: calc(100vh - 120px);
+    max-height: 640px;
+  }
+  .top-nav {
+    max-width: 100vw;
+  }
+}

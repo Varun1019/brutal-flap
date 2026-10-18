@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>BRUTAL FLAP // Neo-Brutalist Browser Game</title>
+  <meta name="description" content="A raw, high-contrast Neo-Brutalist browser game inspired by Flappy Bird. Thick black ink borders, zero-blur shadows, hazard tape, and arcade physics.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23FFE600%22 stroke=%22%23000%22 stroke-width=%228%22/><text y=%22.75em%22 x=%2210%22 font-size=%2260%22 font-weight=%22900%22>⚡</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Marquee Hazard Ticker -->
+  <div class="hazard-ticker">
+    <div class="ticker-track">
+      <span>/// BRUTAL FLAP [V2.0] /// NO TRAINING WHEELS /// SMASH SPACEBAR TO DEFY GRAVITY /// 100% RAW RETRO PHYSICS /// ZERO TOLERANCE COLLISION MATRIX ///</span>
+      <span>/// BRUTAL FLAP [V2.0] /// NO TRAINING WHEELS /// SMASH SPACEBAR TO DEFY GRAVITY /// 100% RAW RETRO PHYSICS /// ZERO TOLERANCE COLLISION MATRIX ///</span>
+    </div>
+  </div>
+
+  <main class="game-viewport-wrapper">
+    <!-- Top Navigation Header -->
+    <header class="top-nav">
+      <div class="brand">
+        <span class="brand-icon">⚡</span>
+        <h1 class="brand-title">BRUTAL // FLAP</h1>
+      </div>
+      <div class="nav-actions">
+        <button id="musicBtn" class="nav-btn" title="Toggle Synth Track">🎵 MUSIC: OFF</button>
+        <button id="muteBtn" class="nav-btn" title="Toggle Audio FX">🔊 SFX: ON</button>
+      </div>
+    </header>
+
+    <!-- Main Game Console Frame -->
+    <section class="game-device">
+      <!-- Game Canvas -->
+      <canvas id="gameCanvas" width="420" height="640" aria-label="Brutal Flap Canvas"></canvas>
+
+      <!-- In-Game Brutalist HUD -->
+      <div id="gameHud" class="game-hud" style="display: none;">
+        <div class="hud-pill">
+          <span class="stat-label">SCORE:</span>
+          <span id="hudScore" class="score-display">0</span>
+        </div>
+        <div class="hud-pill orb-pill">
+          <span>★</span>
+          <span id="hudOrbs">0</span>
+        </div>
+        <button id="pauseBtn" class="hud-btn" title="Pause Game" aria-label="Pause Game">⏸</button>
+      </div>
+
+      <!-- Start / Menu Modal -->
+      <div id="startModal" class="overlay-modal">
+        <div class="modal-card">
+          <span class="badge-brutal">SYS://RAW_PHYSICS</span>
+          <h2 class="game-title">BRUTAL<br><span>FLAP</span></h2>
+          <p class="subtitle">NAVIGATE INDUSTRIAL PILLARS. NO MERCY.</p>
+
+          <!-- Character Selector -->
+          <div class="skin-selector">
+            <button id="prevSkinBtn" class="skin-arrow-btn" aria-label="Previous Pilot">◀</button>
+            <div>
+              <div class="skin-label">ACTIVE PILOT</div>
+              <div id="skinName" class="skin-name">CHUNKY BIRD</div>
+            </div>
+            <button id="nextSkinBtn" class="skin-arrow-btn" aria-label="Next Pilot">▶</button>
+          </div>
+
+          <!-- All-Time Best Score -->
+          <div class="stats-row">
+            <div class="stat-box">
+              <div class="stat-label">RECORD HIGHSCORE</div>
+              <div id="menuBestScore" class="stat-value">0</div>
+            </div>
+          </div>
+
+          <button id="playBtn" class="cta-button">START ENGINE</button>
+
+          <div class="prompt-hint">
+            <span>PRESS</span>
+            <span class="kbd">SPACE</span>
+            <span>OR TAP TO FLAP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pause Modal -->
+      <div id="pauseModal" class="overlay-modal" style="display: none;">
+        <div class="modal-card">
+          <span class="badge-brutal" style="background: var(--b-pink); color: #fff;">HALTED</span>
+          <h2 class="game-title">HARD<br>PAUSE</h2>
+          <p class="subtitle">PRESS RESUME WHEN READY</p>
+          <button id="resumeBtn" class="cta-button">RESUME FLAP</button>
+          <div class="prompt-hint">
+            <span>PRESS</span>
+            <span class="kbd">P</span>
+            <span>TO UNPAUSE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game Over Modal -->
+      <div id="gameOverModal" class="overlay-modal" style="display: none;">
+        <div class="modal-card">
+          <div id="newBestBadge" class="badge-new-best" style="display: none;">★ NEW RECORD BEST! ★</div>
+          <h2 class="game-title" style="color: var(--b-pink);">FATAL<br>IMPACT</h2>
+
+          <!-- Medals & Rank -->
+          <div class="medal-container">
+            <div id="medalIcon" class="medal-icon">🔰</div>
+            <div class="medal-info">
+              <div class="medal-heading">INDUSTRIAL RANK EARNED</div>
+              <div id="medalName" class="medal-name">ROOKIE FLAPPER</div>
+            </div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="stats-row">
+            <div class="stat-box">
+              <div class="stat-label">FINAL RUN</div>
+              <div id="finalScore" class="stat-value">0</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">BEST RECORD</div>
+              <div id="finalBestScore" class="stat-value">0</div>
+            </div>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-box">
+              <div class="stat-label">STARS COLLECTED</div>
+              <div id="finalOrbs" class="stat-value" style="color: #d97706;">0</div>
+            </div>
+          </div>
+
+          <button id="restartBtn" class="cta-button btn-restart">RETRY MISSION</button>
+
+          <div class="prompt-hint">
+            <span>PRESS</span>
+            <span class="kbd">SPACE</span>
+            <span>OR CLICK TO RETRY</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Controls Guide -->
+    <footer class="footer-guide">
+      <div class="guide-item">
+        <span class="kbd">SPACE</span> / <span class="kbd">CLICK</span> FLAP
+      </div>
+      <div class="guide-item">
+        <span class="kbd">P</span> PAUSE
+      </div>
+    </footer>
+  </main>
+
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
