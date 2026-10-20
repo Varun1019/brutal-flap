@@ -665,6 +665,11 @@
       // Autopilot agent (agent.js)
       this.agent = window.BrutalFlapAgent ? new window.BrutalFlapAgent(this) : null;
 
+      // Easter egg
+      this.easterEggBuffer = '';
+      this.easterEggTimer = 0;
+      this.easterEggDuration = 150;
+
       // Entities
       this.bird = null;
       this.pipes = [];
@@ -928,6 +933,10 @@
     setupControls() {
       const handleAction = (e) => {
         if (e && e.type === 'keydown') {
+          if (this.handleEasterEggKey(e.key)) {
+            e.preventDefault();
+            return;
+          }
           if (e.code === 'KeyP') {
             this.togglePause();
             e.preventDefault();
@@ -1133,6 +1142,100 @@
       }
     }
 
+    // --- Easter Egg ---
+    handleEasterEggKey(key) {
+      const EGG = 'VARUN';
+      if (!key || key.length !== 1) return false;
+
+      const ch = key.toUpperCase();
+      if (!/^[A-Z]$/.test(ch)) return false;
+
+      if (this.easterEggBuffer.length === 0) {
+        if (ch !== EGG[0]) return false;
+        this.easterEggBuffer = ch;
+        return true;
+      }
+
+      const next = this.easterEggBuffer + ch;
+      if (next === EGG) {
+        this.easterEggBuffer = '';
+        this.triggerEasterEgg();
+        return true;
+      }
+
+      if (EGG.startsWith(next)) {
+        this.easterEggBuffer = next;
+        return true;
+      }
+
+      this.easterEggBuffer = '';
+      return false;
+    }
+
+    triggerEasterEgg() {
+      this.easterEggTimer = this.easterEggDuration;
+
+      const x = this.bird ? this.bird.x : CANVAS_WIDTH / 2;
+      const y = this.bird ? this.bird.y : CANVAS_HEIGHT / 2;
+
+      this.addFloatingText('VARUN', x, y - 30, '#FFE600');
+
+      for (let i = 0; i < 26; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const spd = Math.random() * 5 + 2;
+        this.particles.push({
+          x: x,
+          y: y,
+          vx: Math.cos(angle) * spd,
+          vy: Math.sin(angle) * spd,
+          size: Math.random() * 7 + 3,
+          color: i % 2 === 0 ? '#FFE600' : '#FF3366',
+          rotation: Math.random() * Math.PI,
+          vRot: (Math.random() - 0.5) * 0.3,
+          alpha: 1,
+          decay: Math.random() * 0.02 + 0.015
+        });
+      }
+
+      if (window.soundEngine) {
+        window.soundEngine.playCoin();
+        window.soundEngine.playScore();
+      }
+    }
+
+    drawEasterEggStamp(ctx) {
+      if (this.easterEggTimer <= 0) return;
+
+      const progress = 1 - this.easterEggTimer / this.easterEggDuration;
+      const pop = progress < 0.12 ? progress / 0.12 : 1;
+      const fade = this.easterEggTimer < 45 ? this.easterEggTimer / 45 : 1;
+
+      ctx.save();
+      ctx.globalAlpha = Math.min(1, fade);
+      ctx.translate(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 - 30);
+      ctx.rotate(-0.07);
+      ctx.scale(pop, pop);
+
+      ctx.font = '900 42px "Archivo Black", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      const text = 'VARUN';
+      const width = ctx.measureText(text).width + 40;
+      const height = 62;
+
+      ctx.fillStyle = '#FFE600';
+      ctx.fillRect(-width / 2, -height / 2, width, height);
+      ctx.strokeStyle = '#000000';
+      ctx.lineWidth = 5;
+      ctx.strokeRect(-width / 2, -height / 2, width, height);
+
+      ctx.fillStyle = '#000000';
+      ctx.fillText(text, 0, 2);
+
+      ctx.restore();
+    }
+
     flap() {
       if (this.bird.dead) return;
       this.bird.velocity = JUMP_FORCE;
@@ -1258,6 +1361,8 @@
       // Autopilot agent acts before the physics step so its decision
       // lands on the very same frame it was made.
       if (this.agent) this.agent.update();
+
+      if (this.easterEggTimer > 0) this.easterEggTimer--;
 
       // Screen shake decay
       if (this.screenShake > 0) {
@@ -1510,6 +1615,9 @@
 
       // 10. Comic Book Floating Text Badges
       this.drawFloatingTexts(ctx);
+
+      // 11. Easter Egg Stamp
+      this.drawEasterEggStamp(ctx);
 
       ctx.restore();
     }
