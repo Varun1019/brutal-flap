@@ -12,6 +12,8 @@ A raw, high-contrast Neo-Brutalist browser arcade game inspired by Flappy Bird. 
 
 - **Spacebar / Left Click / Tap**: Flap upward
 - **P**: Pause / Resume game
+- **T**: Cycle theme
+- **A** or the **🤖 AI AGENT** button at the bottom: Toggle the autopilot agent on/off
 - **🎵 Music Button**: Toggle procedural synth background loop
 - **🔊 SFX Button**: Toggle sound effects
 - **Pilot Selection**: Switch between **Chunky Bird**, **Cyber Drone**, and **Hot Phoenix** on the start screen.
@@ -24,6 +26,7 @@ A raw, high-contrast Neo-Brutalist browser arcade game inspired by Flappy Bird. 
 - **Calibrated & Balanced Physics**: Gentle gravity, capped terminal velocity, wide pipe gaps, and forgiving hitboxes for smooth, addictive gameplay.
 - **Pure Web Audio Synthesizer**: Procedural sound effects (flaps, score pings, star collect chimes, crash bursts, synth loop) with zero external asset dependencies.
 - **Particle System**: Sharp square confetti and comic debris.
+- **AI Agent (`agent.js`)**: A self-contained autopilot agent that senses the world (bird kinematics, upcoming pillars, star positions), plans with a beam search over flap/hold action sequences, and acts on the winning move. Toggle it with the bottom bar button or the `A` key — it plays for you and auto-restarts after a crash.
 - **Local Persistence**: Saves your personal high score and stars in `localStorage`.
 
 ---

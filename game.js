@@ -649,6 +649,22 @@
       this.screenShake = 0;
       this.isNewHighScore = false;
 
+      // Shared physics + state contract (consumed by the autopilot agent)
+      this.config = {
+        CANVAS_WIDTH: CANVAS_WIDTH,
+        CANVAS_HEIGHT: CANVAS_HEIGHT,
+        GROUND_HEIGHT: GROUND_HEIGHT,
+        GRAVITY: GRAVITY,
+        JUMP_FORCE: JUMP_FORCE,
+        MAX_FALL_SPEED: MAX_FALL_SPEED,
+        PIPE_SPEED: PIPE_SPEED,
+        HITBOX_SCALE: 0.68
+      };
+      this.states = STATE;
+
+      // Autopilot agent (agent.js)
+      this.agent = window.BrutalFlapAgent ? new window.BrutalFlapAgent(this) : null;
+
       // Entities
       this.bird = null;
       this.pipes = [];
@@ -922,6 +938,11 @@
             e.preventDefault();
             return;
           }
+          if (e.code === 'KeyA') {
+            this.toggleAgent();
+            e.preventDefault();
+            return;
+          }
           if (e.code !== 'Space' && e.code !== 'ArrowUp' && e.code !== 'KeyW') {
             return;
           }
@@ -953,6 +974,14 @@
 
       const resumeBtn = document.getElementById('resumeBtn');
       if (resumeBtn) resumeBtn.addEventListener('click', () => this.togglePause());
+
+      const aiAgentBtn = document.getElementById('aiAgentBtn');
+      if (aiAgentBtn) {
+        aiAgentBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.toggleAgent();
+        });
+      }
 
       const muteBtn = document.getElementById('muteBtn');
       if (muteBtn) {
@@ -1092,6 +1121,18 @@
       this.updateUI();
     }
 
+    toggleAgent() {
+      if (!this.agent) return;
+      const on = this.agent.toggle();
+
+      const aiBtn = document.getElementById('aiAgentBtn');
+      if (aiBtn) {
+        aiBtn.innerText = on ? '🤖 AI AGENT: ON' : '🤖 AI AGENT: OFF';
+        aiBtn.classList.toggle('active', on);
+        aiBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      }
+    }
+
     flap() {
       if (this.bird.dead) return;
       this.bird.velocity = JUMP_FORCE;
@@ -1206,9 +1247,17 @@
       this.updateUI();
     }
 
+    getPipeSpeed() {
+      return PIPE_SPEED + Math.min(1.3, this.score * 0.04);
+    }
+
     // --- Update Loop ---
     update() {
       this.frameCount++;
+
+      // Autopilot agent acts before the physics step so its decision
+      // lands on the very same frame it was made.
+      if (this.agent) this.agent.update();
 
       // Screen shake decay
       if (this.screenShake > 0) {
@@ -1294,7 +1343,7 @@
         this.spawnPipe();
       }
 
-      const currentSpeed = PIPE_SPEED + Math.min(1.3, this.score * 0.04);
+      const currentSpeed = this.getPipeSpeed();
 
       // Update Pipes
       for (let i = this.pipes.length - 1; i >= 0; i--) {

@@ -622,6 +622,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 16px;
   color: var(--b-black);
   font-family: var(--font-mono);
@@ -637,6 +638,39 @@ body {
   border: var(--border-med);
   padding: 4px 10px;
   box-shadow: 3px 3px 0px var(--b-black);
+}
+
+/* AI Agent Toggle (bottom bar) */
+.ai-agent-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--b-yellow);
+  border: var(--border-med);
+  color: var(--b-black);
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+.ai-agent-btn:hover {
+  background: var(--b-cyan);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--b-black);
+}
+
+.ai-agent-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-pressed);
+}
+
+.ai-agent-btn.active {
+  background: var(--b-green);
 }
 
 /* Theme Gallery Modal */
